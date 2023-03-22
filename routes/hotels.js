@@ -7,11 +7,7 @@ import {
   UpdateHotel,
 } from "../controllers/hotelCtrl.js";
 
-import {
-  verifyIsAdmin,
-  verifyToken,
-  verifyUser,
-} from "../utilities/verifyToken.js";
+import { verifyIsAdmin } from "../utilities/verifyToken.js";
 
 const router = express.Router();
 
