@@ -6,6 +6,7 @@ import hotelsRouth from "./routes/hotels.js";
 import roomsRouth from "./routes/rooms.js";
 import usersRouth from "./routes/users.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 const app = express();
 dotenv.config();
@@ -18,6 +19,7 @@ async function connect() {
 //middlewares
 app.use(cookieParser());
 app.use(express.json());
+app.use(cors());
 
 app.use("/auth", authRouth);
 app.use("/hotels", hotelsRouth);
@@ -34,7 +36,7 @@ app.use((err, req, res, next) => {
     message: errorMessage,
     stack: err.stack,
   });
-  nexr;
+  next();
 });
 
 app.listen(8800, () => {
